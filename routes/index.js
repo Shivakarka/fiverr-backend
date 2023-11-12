@@ -4,6 +4,7 @@ import reviewRoute from "./reviewRoute.js";
 import orderRoute from "./orderRoute.js";
 import messageRoute from "./messageRoute.js";
 import conversationRoute from "./conversationRoute.js";
+import authRoute from "./authRoute.js";
 
 export {
   userRoute,
@@ -12,4 +13,5 @@ export {
   orderRoute,
   messageRoute,
   conversationRoute,
+  authRoute,
 };
