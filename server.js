@@ -1,6 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/dbConfig.js";
+import cors from "cors";
 import {
   authRoute,
   conversationRoute,
@@ -15,6 +16,7 @@ const app = express();
 
 connectDB();
 
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
