@@ -27,6 +27,12 @@ app.use("/api/reviews", reviewRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/auth", authRoute);
 
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const errorMessage = err.message || "Internal server error.";
+  res.status(statusCode).json({ error: errorMessage });
+});
+
 app.listen(8800, () => {
   console.log("Backend server is running!");
 });
