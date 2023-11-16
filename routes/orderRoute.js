@@ -1,9 +1,10 @@
 import express from "express";
+import { verifyToken } from "../middlewares/verifyJWT.js";
+import { createOrder, getOrders } from "../controllers/orderController.js";
 
 const router = express.Router();
 
-router.get("/test", (req, res) => {
-  res.send("Hello World!");
-});
+router.post("/:gigId", verifyToken, createOrder);
+router.get("/", verifyToken, getOrders);
 
 export default router;
