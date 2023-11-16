@@ -1,9 +1,17 @@
 import express from "express";
+import { verifyToken } from "../middlewares/verifyJWT.js";
+import {
+  createConversation,
+  getConversations,
+  getSingleConversation,
+  updateConversation,
+} from "../controllers/conversationController.js";
 
 const router = express.Router();
 
-router.get("/test", (req, res) => {
-  res.send("Hello World!");
-});
+router.get("/", verifyToken, getConversations);
+router.post("/", verifyToken, createConversation);
+router.get("/single/:id", verifyToken, getSingleConversation);
+router.put("/:id", verifyToken, updateConversation);
 
 export default router;
