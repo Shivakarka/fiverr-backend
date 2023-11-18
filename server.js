@@ -11,6 +11,9 @@ import {
   reviewRoute,
   userRoute,
 } from "./routes/index.js";
+import Stripe from "stripe";
+
+const stripe = new Stripe(process.env.STRIPE);
 
 const app = express();
 
