@@ -39,6 +39,8 @@ export const login = async (req, res, next) => {
     res
       .cookie("accessToken", token, {
         httpOnly: true,
+        sameSite: "none",
+        domain: ".vercel.app",
       })
       .status(200)
       .send(info);

@@ -18,7 +18,11 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://fiverr-clone-sk.netlify.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://fiverr-clone-sk.netlify.app",
+      "https://fiverr-clone-sk.vercel.app/",
+    ],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
