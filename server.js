@@ -11,15 +11,23 @@ import {
   reviewRoute,
   userRoute,
 } from "./routes/index.js";
-import Stripe from "stripe";
-
-const stripe = new Stripe(process.env.STRIPE);
+// import dotenv from "dotenv";
+// dotenv.config();
 
 const app = express();
 
 connectDB();
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://655c70f7ebc67a553cbe798c--jovial-dragon-f08749.netlify.app",
+    ],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
