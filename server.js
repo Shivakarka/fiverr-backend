@@ -18,10 +18,7 @@ connectDB();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://655c70f7ebc67a553cbe798c--jovial-dragon-f08749.netlify.app",
-    ],
+    origin: ["http://localhost:5173", "https://fiverr-clone-sk.netlify.app"],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     allowedHeaders: "Content-Type,Authorization",
