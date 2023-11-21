@@ -23,6 +23,8 @@ app.use(
       "https://655c70f7ebc67a553cbe798c--jovial-dragon-f08749.netlify.app",
     ],
     credentials: true,
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
   })
 );
 
