@@ -11,8 +11,6 @@ import {
   reviewRoute,
   userRoute,
 } from "./routes/index.js";
-// import dotenv from "dotenv";
-// dotenv.config();
 
 const app = express();
 
