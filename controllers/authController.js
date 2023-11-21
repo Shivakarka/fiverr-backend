@@ -41,7 +41,7 @@ export const login = async (req, res, next) => {
         httpOnly: true,
         sameSite: "none",
         secure: true,
-        domain: ".vercel.app",
+        domain: "fiverr-clone-sk.vercel.app",
       })
       .status(200)
       .send(info);
