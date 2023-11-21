@@ -40,6 +40,10 @@ app.use("/api/reviews", reviewRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/auth", authRoute);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to Fiverr Clone API");
+});
+
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const errorMessage = err.message || "Internal server error.";
