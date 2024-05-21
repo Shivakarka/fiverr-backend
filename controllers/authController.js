@@ -41,6 +41,7 @@ export const login = async (req, res, next) => {
         httpOnly: true,
         sameSite: "none",
         secure: true,
+        partitioned: true,
       })
       .status(200)
       .send(info);
