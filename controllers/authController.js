@@ -2,6 +2,7 @@ import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import createError from "../utils/createError.js";
+import cookie from "cookie";
 
 export const register = async (req, res, next) => {
   try {
@@ -37,12 +38,17 @@ export const login = async (req, res, next) => {
     );
     const { password, ...info } = user._doc;
     res
-      .cookie("accessToken", token, {
-        httpOnly: true,
-        sameSite: "none",
-        secure: true,
-        partitioned: true,
-      })
+      .setHeader(
+        "Set-Cookie",
+        cookie.serialize("accessToken", token, {
+          path: "/",
+          httpOnly: true,
+          maxAge: 86400,
+          secure: true,
+          sameSite: "none",
+          partitioned: true,
+        })
+      )
       .status(200)
       .send(info);
   } catch (error) {
